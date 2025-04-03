@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>십진수 → 이진수 변환기</title>
+</head>
+<body>
+  <h2>십진수를 이진수로 변환</h2>
+  <input type="number" id="decimalInput" placeholder="십진수를 입력하세요">
+  <button onclick="convertToBinary()">변환하기</button>
+  <p id="binaryResult">이진수: </p>
+
+  <script>
+    function convertToBinary() {
+      const decimal = document.getElementById("decimalInput").value;
+      const binary = Number(decimal).toString(2); // 2진수로 변환
+      document.getElementById("binaryResult").innerText = "이진수: " + binary;
+    }
+  </script>
+</body>
+</html>
