@@ -2,18 +2,76 @@
 <html>
 <head>
   <title>십진수 → 이진수 변환기</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #binaryResult {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
-  <h2>십진수를 이진수로 변환</h2>
-  <input type="number" id="decimalInput" placeholder="십진수를 입력하세요">
-  <button onclick="convertToBinary()">변환하기</button>
-  <p id="binaryResult">이진수: </p>
+  <div class="container">
+    <h2>십진수를 이진수로 변환</h2>
+    <input type="number" id="decimalInput" placeholder="숫자를 입력하세요" onkeydown="handleEnter(event)">
+    <br>
+    <button onclick="convertToBinary()">변환하기</button>
+    <p id="binaryResult">이진수: </p>
+  </div>
 
   <script>
     function convertToBinary() {
       const decimal = document.getElementById("decimalInput").value;
-      const binary = Number(decimal).toString(2); // 2진수로 변환
+      const binary = Number(decimal).toString(2);
       document.getElementById("binaryResult").innerText = "이진수: " + binary;
+    }
+
+    function handleEnter(event) {
+      if (event.key === "Enter") {
+        convertToBinary();
+      }
     }
   </script>
 </body>
